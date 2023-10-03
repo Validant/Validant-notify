@@ -1,5 +1,5 @@
 # Validant-notify
-A Notification Resource for FiveM
+A Notification Resource for FiveM, when you have troble with my resource can you join my discord https://discord.gg/cGEEGbcWPf
 
 
 |Framework|Standalone|

@@ -2,7 +2,7 @@ Config = {}
 
 -- Hier werden die Frameworks samt den Rest eingestellt.
 Config.Framework = "ESX"
-Config.Icon = '<i class="fa-solid fa-bell fa-lg" style="color: #0a64ff;"></i>' -- You can use FontAwesome to add your personal Icon.
+Config.Icon = '<i class="fa-solid fa-user"></i>' -- You can use FontAwesome to add your personal Icon.
 Config.Color = "darkblue" -- Here can you select two themes darkred and darkblue.
 Config.Title = "V-Notify" -- Here can you add your Servername when you want it.
 Config.Position = "top-left" -- There is the Option (bottom-left, bottom-right, middle-left, middle-right, top-left, top-right)

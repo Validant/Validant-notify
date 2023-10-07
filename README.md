@@ -13,6 +13,7 @@ A Notification Resource for FiveM, when you have trouble with my resource can yo
 
 ### Export to trigger Alerts
 > exports['validant-notify']:alert(message, alerttyp)
+
 |Type|image|
 |----|------------------------------------------------------------------------------------------------------------|
 |info||![image](https://github.com/Validant/Validant-notify/assets/146039104/8541d9f3-fca6-4e84-8fc9-c33730239cef)|

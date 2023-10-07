@@ -1,15 +1,16 @@
 if Config.Framework == "ESX" then
-    ESX = exports['es_extended']:getSharedObject()
+  ESX = exports['es_extended']:getSharedObject()
 end
 local display = false
+local alertDisplay = false
 --[[ ////////////////////////////////////////// ]]
 if Config.Debug == true then
   RegisterCommand('notifyd', function(source, args, rawCommand)
-    TriggerEvent("validant:sendMessage",args, "darkblue", 5000)
+    TriggerEvent("validant:sendMessage",args )
   end)
 
-  RegisterCommand('notify', function(source, args, rawCommand)
-    TriggerEvent("validant:sendMessage",args[1], args[2], 5000)
+  RegisterCommand('notifye', function(source, args, rawCommand)
+    TriggerEvent("validant:sendMessage",args )
   end)
 
   RegisterCommand("show", function(source, args)
@@ -17,53 +18,74 @@ if Config.Debug == true then
   end)
 end
 
-
 function setDisplay(bool)
-  display = bool
-  SetNuiFocus(bool, bool)
-  SendNUIMessage({
-    type = "ui",
     display = bool
-  })
+    SetNuiFocus(bool, bool)
+    SendNUIMessage({
+      type = "msg",
+      display = bool
+    })
+end
+function SetAlertDisplay(bool)
+    alertDisplay = bool
+    SendNUIMessage({
+      type = "alert",
+      display = bool
+    })
 end
 
-exports("notify", function (message)
-  TriggerEvent("validant:sendMessage",message)
-    if Config.Debug == true then
-     print(message)
-    end
+
+exports("alert", function (message, alerttyp)
+  TriggerEvent('validant:alert', message, alerttyp)
 end)
 
--- RegisterNetEvent('validant:notifySystem')
--- AddEventHandler('validant:notifySystem', function()
---     SendNUIMessage({
---       title = "System",
---       type = "msg",
---       inline = Config.Inline,
---       round = Config.Round,
---       msg = message,
---       col = color,
---       icon = '<i class="fa-solid fa-server"></i>',
---       position = Config.Position,
---       display = true 
---     })
---   Citizen.Wait(Config.ShownTime)
---   setDisplay(false)
--- end) comes to a update. this should be a system notification like someone has join the Server or something else like.
+exports("open", function (message)
+TriggerEvent("validant:sendMessage",message)
+  if Config.Debug == true then
+   print(message)
+  end
+end)
+
+exports("close",function()
+  setDisplay(false)
+end)
+
+RegisterNetEvent('validant:alert')
+AddEventHandler('validant:alert', function(message, alerttyp)
+
+  if alerttyp == "warn" then
+      col = "warn"
+  elseif alerttyp == "error" then
+      col = "error"
+  elseif alerttyp == "info" then
+      col = "info"
+  end
+
+  SendNUIMessage({
+    type = "alert",
+    Ainline = true,
+    Around = true,
+    Amsg = message,
+    Acol = col,
+    Aposition = "bottom-right",
+    display = true
+  })
+  Citizen.Wait(Config.ShownTime)
+  SetAlertDisplay(false, false)
+
+end)
 
 RegisterNetEvent("validant:sendMessage")
-AddEventHandler("validant:sendMessage", function(message, color)
-    SendNUIMessage({
-        title = Config.Title,
-        type = "msg",
-        inline = Config.Inline,
-        round = Config.Round,
-        msg = message,
-        col = color,
-        icon = Config.Icon,
-        position = Config.Position,
-        display = true 
-    })
-    Citizen.Wait(Config.ShownTime)
-    setDisplay(false)
+AddEventHandler("validant:sendMessage", function(message)
+  SendNUIMessage({
+      title = Config.Title,
+      type = "msg",
+      inline = Config.Inline,
+      round = Config.Round,
+      msg = message,
+      col = Config.Color,
+      icon = Config.Icon,
+      position = Config.Position,
+      display = true 
+  })
 end)

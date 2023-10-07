@@ -7,17 +7,17 @@ AddEventHandler('onResourceStart', function(resourceName)
       return
     end
     print('The resource ' .. resourceName .. ' has been started.')
-end)
+end) 
 
 exports("notify", function (message, color)
-    TriggerClientEvent("valdiant:sendMessage",message, color)
+    TriggerClientEvent("valdiant:sendMessage", message)
     if Config.Debug == true then
         print(message, color)
     end
 end)
 
 function notify(message, color)
-    TriggerClientEvent("valdiant:sendMessage",message, color)
+    TriggerClientEvent("valdiant:sendMessage", message)
     if Config.Debug == true then
         print(message, color)
     end

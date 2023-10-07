@@ -23,3 +23,5 @@ A Notification Resource for FiveM, when you have trouble with my resource can yo
 
 - added one more Style.
 - trying to add some functions like when someone join the Server to display a notification.
+### Positions
+![position](https://github.com/Validant/Validant-notify/assets/146039104/57e93bd9-871b-475b-a884-aa5195216ecd)

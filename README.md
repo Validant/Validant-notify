@@ -16,7 +16,7 @@ A Notification Resource for FiveM, when you have trouble with my resource can yo
 
 |Type|image|
 |----|------------------------------------------------------------------------------------------------------------|
-|info||![image](https://github.com/Validant/Validant-notify/assets/146039104/be7dfe13-453d-43a9-9acd-ff741de77991)|
+|info||![image](https://github.com/Validant/Validant-notify/assets/146039104/5782547e-f9a4-489c-8511-770c8879846f)|
 |error|![image](https://github.com/Validant/Validant-notify/assets/146039104/550ae4c9-ac56-4c05-af52-6e9050db557c)|
 |warn|![image](https://github.com/Validant/Validant-notify/assets/146039104/f18768c0-98d3-4b07-a66b-c5005192adf9)|
 
